@@ -22,7 +22,7 @@ let shuffleOrder = () => {
 
     for(let i in order){
         let elementColor=createColorElement(order[i]);
-        ligthColor(elementColor,Number(i)+1);
+        ligthColor(elementColor,Number(i)*2);
     
     }
 
@@ -32,10 +32,10 @@ let ligthColor = (element,Number) => {
     Number = Number*500;
     setTimeout(() =>{
         element.classList.toggle('selected');
-    },Number);
+    },Number-250);
     setTimeout(() =>{
         element.classList.toggle('selected');
-    });
+    },Number+500);
 }
 
 let checkOrder = () => {
@@ -54,12 +54,12 @@ let checkOrder = () => {
 
 let click =(color) => {
     clickedOrder[clickedOrder.length]= color;
-    createColorElement(color).classList.toggle('selected');
+    createColorElement(color).classList.add('selected');
 
     setTimeout (() => {
-        createColorElement(color).classList.toggle('selected');
+        createColorElement(color).classList.remove('selected');
         checkOrder();
-    },500)
+    },250)
     
 }
 

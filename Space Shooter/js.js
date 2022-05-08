@@ -72,7 +72,7 @@ function moverLaser(laser){
         if(xPostion === 340){
             laser.remove();
         }else {
-            laser.style.left =`${xPostion+1}px`;
+            laser.style.left =`${xPostion+8}px`;
         }
 
     },10);
@@ -103,7 +103,7 @@ function moveAlien(alien){
             
         }
         else{
-            alien.style.left =`${xPostion -8}px`;
+            alien.style.left =`${xPostion -4}px`;
         }
 
     },30)
@@ -135,7 +135,7 @@ startButton.addEventListener('click',(event)=>{
 function playGame(){
     startButton.style.display ='none';
     instructionsText.style.display='none';
-    window.addEventListener('keydown',flyShip);
+    window.addEventListener('keyup',flyShip);
     alienInterval = setInterval (()=>{
         createAliens();
 
@@ -143,7 +143,7 @@ function playGame(){
 }
 
 function gameOver() {
-    window.removeEventListener('keydown',flyShip);
+    window.removeEventListener('keyup',flyShip);
     clearInterval(alienInterval);
     let aliens = document.querySelectorAll('.alien');
     aliens.forEach((alien)=>alien.remove());
